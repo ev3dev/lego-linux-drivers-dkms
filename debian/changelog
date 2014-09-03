@@ -1,0 +1,5 @@
+legoev3-uart-sensor-modules (1.0) trusty; urgency=low
+
+  * Initial Release.
+
+ -- David Lechner <david@lechnology.com>  Tue, 02 Sep 2014 12:35:31 -0500
