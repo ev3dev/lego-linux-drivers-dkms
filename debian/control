@@ -1,19 +1,19 @@
-Source: legoev3-uart-sensor-modules
+Source: lego-modules
 Section: kernel
 Priority: optional
 Maintainer: David Lechner <david@lechnology.com>
 Build-Depends: debhelper (>= 9), dkms
 Standards-Version: 3.9.5
-Homepage: http://lechnology.com
-#Vcs-Git: git://git.debian.org/collab-maint/legoev3-uart-sensor-modules.git
-#Vcs-Browser: http://git.debian.org/?p=collab-maint/legoev3-uart-sensor-modules.git;a=summary
+Homepage: http://www.ev3dev.org
+Vcs-Git: git://github.com/ev3dev/lego-linux-drivers-dkms.git
+Vcs-Browser: https://github.com/ev3dev/lego-linux-drivers-dkms
 
-Package: legoev3-uart-sensor-modules
+Package: lego-modules
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Kernel modules for using LEGO MINDSTORMS EV3 UART Sensors
+Description: Kernel modules for using LEGO MINDSTORMS and LEGO WeDo devices.
  Modules include:
- * legoev3_uart.ko: A tty line dicipline (29) that handles communication with
-   the sensors
- * msensor_class.ko: Provides a sysfs interface for communicating with LEGO
-   MINDSTORMS sesnors.
+ * ev3_uart_sensor_ld.ko: A tty line discipline (29) that handles communication
+   with LEGO MINDSTORMS EV3 sensors.
+ * lego_sensor_class.ko: Provides a sysfs interface for communicating with LEGO
+   sensors.

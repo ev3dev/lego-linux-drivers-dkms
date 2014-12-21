@@ -1,12 +1,12 @@
-MDIR := legoev3
+MDIR := lego
 
 KVER ?= $(shell uname -r)
 KDIR ?= /lib/modules/$(KVER)/build
 
 ifneq ($(KERNELRELEASE),)
 
-obj-m	+= msensor_class.o
-obj-m	+= legoev3_uart.o
+obj-m	+= lego/sensors/lego_sensor_class.o
+obj-m	+= lego/sensors/ev3_uart_sensor_ld.o
 
 else
 

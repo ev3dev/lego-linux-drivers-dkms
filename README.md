@@ -1,7 +1,10 @@
-legoev3-uart-sensor-modules DKMS
-================================
+lego-linux-drivers-dkms
+=======================
 
-Dynamic Kernel Module Support (DKMS) for LEGO MINDSTROMS EV3 UART sensors.
+IMPORTANT: THIS IS CURRENTLY IN A BROKEN STATE. HELP US FIX IT, OR CHECK BACK
+AGAIN SOON!
+
+Dynamic Kernel Module Support (DKMS) for LEGO MINDSTROMS and LEGO WeDo.
 
 About
 -----
@@ -23,6 +26,9 @@ Current known UART sensors are:
 
 ...but any future/unknown UART sensors should just work.
 
+Additionally, LEGO WeDo has a USB Hub that connects to WeDo sensors and Power
+Functions motors and lights. These devices can also be used with these drivers.
+
 Warning
 -------
 
@@ -33,7 +39,7 @@ Installation
 ------------
 
 You can download the latest Debian package or DKMS tarball from
-<https://github.com/ev3dev/legoev3-uart-sensor-modules/releases>.
+<https://github.com/ev3dev/lego-linux-drivers-dkms/releases>.
 You just need one or the other.
 
 To install the Debian package (version number may be different):
@@ -61,7 +67,7 @@ the number we have assigned to the line discipline.
 
     sudo ldattach 29 /dev/ttyUSB0
     
-Now, you will have a sensor at `/sys/class/msensor/` that you can play with.
+Now, you will have a sensor at `/sys/class/lego-sensor/` that you can play with.
 For information on how to use the MINDSTORMS sensor class (msensor) in sysfs,
 checkout the [ev3dev wiki].
 
