@@ -13,7 +13,23 @@ Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Kernel modules for using LEGO MINDSTORMS and LEGO WeDo devices.
  Modules include:
- * ev3_uart_sensor_ld.ko: A tty line discipline (29) that handles communication
-   with LEGO MINDSTORMS EV3 sensors.
- * lego_sensor_class.ko: Provides a sysfs interface for communicating with LEGO
-   sensors.
+  * lego_bus: A kernel driver bus used by the other modules.
+  * lego_port_class: Driver for interfacing with ports, such as the two ports
+    on the LEGO WeDo USB Hub.
+  * dc_motor_class: Provides a sysfs interface for controlling simple motors
+    like the LEGO Power Functions motors.
+  * rcx_led: A device driver for LED devices like the LEGO Power Functions LEDs.
+  * rcx_motor: A device driver for simple motors like he LEGO Power Functions
+    motors.
+  * servo_motor_class: Provides a sysfs interface for controlling hobby-type
+    servo motors.
+  * tacho_motor_class: Provides a sysfs interface for controlling LEGO
+    MINDSTORMS motors.
+  * ev3_analog_sensor: Device drivers for Analog/EV3 sensors.
+  * ev3_uart_sensor: Device drivers for UART/EV3 sensors.
+  * ev3_uart_sensor_ld: A tty line discipline (29) that handles communication
+    with LEGO MINDSTORMS EV3 sensors.
+  * lego_sensor_class.ko: Provides a sysfs interface for communicating with LEGO
+    sensors.
+  * nxt_analog_sensor: Device drivers for Analog/NXT sensors.
+  * wedo: USB driver for the LEGO WeDo USB Hub.

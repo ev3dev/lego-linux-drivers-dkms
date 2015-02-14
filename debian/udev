@@ -1,0 +1,14 @@
+# Rule to bind LEGO WeDo USB Hub to lego-modules driver. By default it is detected
+# as an HID device, so we have to unbind it from usbhid first.
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_interface", ATTRS{idVendor}=="0694", ATTRS{idProduct}=="0003", \
+    ACTION=="add", RUN+="/bin/sh -c '/sbin/modprobe wedo; \
+                                     /bin/echo $kernel > /sys/bus/usb/drivers/usbhid/unbind; \
+                                     /bin/echo $kernel > /sys/bus/usb/drivers/wedo/bind'"
+
+# Set permissions so ev3dev group can control lego bus devices, ports, sensors and motors
+SUBSYSTEM=="lego|lego-port|lego-sensor|tacho-motor|servo-motor|dc-motor", ACTION=="add", \
+    RUN+="/usr/bin/find /sys$devpath -maxdepth 1 -not -name uevent -type f -exec /bin/chmod g+u {} + -exec /bin/chown :ev3dev {} +"
+
+# sets permissions so ev3dev group can control LEDs
+SUBSYSTEM=="leds", DRIVERS=="wedo", ACTION=="add|change", \
+    RUN+="/usr/bin/find /sys$devpath -maxdepth 1 -not -name uevent -type f -exec /bin/chmod g+u {} + -exec /bin/chown :ev3dev {} +"

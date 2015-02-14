@@ -1,4 +1,13 @@
-lego-modules (1.0) UNRELEASED; urgency=low
+lego-modules (2.0) testing; urgency=medium
+
+  * Update to v3.16.7-ckt4-ev3dev1 kernel equivalent drivers.
+  * Add ev3dev system group.
+  * Add udev rule for WeDo USB Hub and ev3dev group permissions.
+  * Add `ev3uartattach` helper script.
+
+ -- David Lechner <david@lechnology.com>  Sat, 14 Feb 2015 00:04:40 -0600
+
+lego-modules (1.0) testing; urgency=low
 
   * Initial Release.
 

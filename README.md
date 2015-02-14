@@ -1,10 +1,12 @@
 lego-linux-drivers-dkms
 =======================
 
-IMPORTANT: THIS IS CURRENTLY IN A BROKEN STATE. HELP US FIX IT, OR CHECK BACK
-AGAIN SOON!
+Dynamic Kernel Module Support (DKMS) for the ev3dev drivers.
 
-Dynamic Kernel Module Support (DKMS) for LEGO MINDSTROMS and LEGO WeDo.
+The ev3dev drivers provide and easy to use interface for LEGO MINDSTORMS and
+LEGO WeDo hardware. Using these drivers you can use the LEGO WeDo USB Hub and
+LEGO MINDSTORMS EV3 UART sensors with your desktop, laptop, Raspberry Pi or
+just about anything that runs Linux.
 
 About
 -----
@@ -24,7 +26,7 @@ Current known UART sensors are:
 * [LEGO 45506 EV3 Color Sensor]
 * [LEGO 45509 EV3 Infrared Sensor]
 
-...but any future/unknown UART sensors should just work.
+...but any future LEGO, 3rd party or even homemade UART sensors should just work.
 
 Additionally, LEGO WeDo has a USB Hub that connects to WeDo sensors and Power
 Functions motors and lights. These devices can also be used with these drivers.
@@ -33,23 +35,21 @@ Warning
 -------
 
 These are kernel modules. They have the potential completely crash your
-machine.
+machine. If this worries you, try it in a virtual machine.
 
 Installation
 ------------
 
-You can download the latest Debian package or DKMS tarball from
+Note: This has been tested on kernel v3.16 (Debian jessie) and v3.13 (Ubuntu trusty).
+Older or newer kernel versions might not be compatible - in which chase installation
+will fail because the modules could not be compiled.
+
+You can download the latest Debian package from
 <https://github.com/ev3dev/lego-linux-drivers-dkms/releases>.
-You just need one or the other.
 
 To install the Debian package (version number may be different):
 
-    sudo dpkg -i legoev3-uart-sensor-modules_1.0_all.deb
-    
-Or to install the DKMS package (version number may be different):
-
-    sudo dkms ldtarball legoev3-uart-sensor-modules-1.0-source-only.dkms.tar.gz
-    sudo dkms install legoev3-uart-sensor-modules/1.0
+    sudo dpkg -i legoev3-uart-sensor-modules_2.0_all.deb
 
 Usage
 -----
@@ -68,17 +68,23 @@ the number we have assigned to the line discipline.
     sudo ldattach 29 /dev/ttyUSB0
     
 Now, you will have a sensor at `/sys/class/lego-sensor/` that you can play with.
-For information on how to use the MINDSTORMS sensor class (msensor) in sysfs,
-checkout the [ev3dev wiki].
+For information on how to use the MINDSTORMS sensor class (lego-sensor) in sysfs,
+checkout the [ev3dev docs].
 
 If you want to automate the `ldattach` command, check out [that same blog
-post][blog] for information on how your can do this
-using udev.
+post][blog] for information on how your can do this using udev.
+
+Issues
+------
+
+If you have problems or find a bug, search the issues [here][issues] and open
+a new issue if you can't find an existing issue that helps.
 
 [UART]: https://en.wikipedia.org/wiki/Universal_asynchronous_receiver/transmitter
-[ev3dev wiki]: https://github.com/ev3dev/ev3dev/wiki/Using-Sensors#usage
+[ev3dev docs]: http://www.ev3dev.org/docs/drivers/lego-sensor-class/
 [blog]: http://lechnology.com/2014/09/using-uart-sensors-on-any-linux
-[LEGO 45504 EV3 Ultrasonic Sensor]: https://github.com/ev3dev/ev3dev/wiki/LEGO-EV3-Ultrasonic-Sensor-%2845504%29
-[LEGO 45505 EV3 Gyro Sensor]: https://github.com/ev3dev/ev3dev/wiki/LEGO-EV3-Gyro-Sensor-%2845505%29
-[LEGO 45506 EV3 Color Sensor]: https://github.com/ev3dev/ev3dev/wiki/LEGO-EV3-Color-Sensor-%2845506%29
-[LEGO 45509 EV3 Infrared Sensor]: https://github.com/ev3dev/ev3dev/wiki/LEGO-EV3-Infrared-Sensor-%2845509%29
+[LEGO 45504 EV3 Ultrasonic Sensor]: http://www.ev3dev.org/docs/sensors/lego-ev3-ultrasonic-sensor/
+[LEGO 45505 EV3 Gyro Sensor]: http://www.ev3dev.org/docs/sensors/lego-ev3-gyro-sensor/
+[LEGO 45506 EV3 Color Sensor]: http://www.ev3dev.org/docs/sensors/lego-ev3-color-sensor
+[LEGO 45509 EV3 Infrared Sensor]: http://www.ev3dev.org/docs/sensors/lego-ev3-infrared-sensor
+[issues]: https://github.com/ev3dev/ev3dev/issues

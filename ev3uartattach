@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ $# == 2 ]; then
+    dev_node="/dev/"$2
+    cmd="/usr/sbin/ldattach 29 $dev_node"
+
+    case "$1" in
+    start)
+        ${cmd}
+        exit $?
+        ;;
+    stop)
+        pkill -f "${cmd}"
+        exit 0
+        ;;
+    esac
+fi
+
+echo "usage: ev3uartattach start|stop <ttyX>"
+
+exit 1
