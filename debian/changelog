@@ -1,3 +1,9 @@
+lego-modules (2.1) UNRELEASED; urgency=medium
+
+  * Update to kernel release v3.16.7-ckt6-ev3dev1 drivers.
+
+ -- David Lechner <david@lechnology.com>  Sun, 22 Feb 2015 16:42:37 -0600
+
 lego-modules (2.0) testing; urgency=medium
 
   * Update to v3.16.7-ckt4-ev3dev1 kernel equivalent drivers.
