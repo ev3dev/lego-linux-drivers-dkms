@@ -1,8 +1,11 @@
-lego-modules (2.1) UNRELEASED; urgency=medium
+lego-modules (3.0) testing; urgency=medium
 
-  * Update to kernel release v3.16.7-ckt6-ev3dev1 drivers.
+  * Update to kernel release v3.16.7-ckt9-ev3dev1 drivers.
+  * Major overhaul of tacho-motor class (Issue ev3dev/ev3dev#282).
+  * Add support for mindsensor.com NxtMMX motor multiplexer.
+  * Remove `address` attribute from lego-sensor class.
 
- -- David Lechner <david@lechnology.com>  Sun, 22 Feb 2015 16:42:37 -0600
+ -- David Lechner <david@lechnology.com>  Wed, 15 Apr 2015 17:24:59 -0500
 
 lego-modules (2.0) testing; urgency=medium
 
