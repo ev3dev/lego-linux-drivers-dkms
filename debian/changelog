@@ -1,3 +1,9 @@
+lego-modules (3.0.1) testing; urgency=medium
+
+  * Fix building on non-ev3dev kernel
+
+ -- David Lechner <david@lechnology.com>  Fri, 24 Apr 2015 12:52:36 -0500
+
 lego-modules (3.0) testing; urgency=medium
 
   * Update to kernel release v3.16.7-ckt9-ev3dev1 drivers.
