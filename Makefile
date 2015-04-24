@@ -6,12 +6,10 @@ KDIR ?= /lib/modules/$(KVER)/build
 # only build the stuff that does not depend on EV3 Intelligent Brick hardware
 export CONFIG_LEGO_DRIVERS = m
 export CONFIG_LEGO_PORTS = m
-export CONFIG_LEGOEV3_MOTORS = m
+export CONFIG_LEGOEV3_MOTORS = n
 export CONFIG_LEGOEV3_SERVO_MOTORS = m
 export CONFIG_LEGOEV3_DC_MOTORS = m
-# The ev3-tacho-motor module is EV3 hardware specific and probably should be in
-# the ev3/ directory instead of the motors/ directory.
-export CONFIG_LEGOEV3_TACHO_MOTORS = n
+export CONFIG_LEGOEV3_TACHO_MOTORS = m
 export CONFIG_LEGOEV3_MSENSORS = m
 export CONFIG_NXT_ANALOG_SENSORS = m
 export CONFIG_EV3_ANALOG_SENSORS = m
