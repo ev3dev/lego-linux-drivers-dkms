@@ -10,7 +10,7 @@ Vcs-Browser: https://github.com/ev3dev/lego-linux-drivers-dkms
 
 Package: lego-modules
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ev3dev-rules
 Description: Kernel modules for using LEGO MINDSTORMS and LEGO WeDo devices.
  Modules include:
   * lego_bus: A kernel driver bus used by the other modules.
