@@ -40,16 +40,34 @@ machine. If this worries you, try it in a virtual machine.
 Installation
 ------------
 
-Note: This has been tested on kernel v3.16 (Debian jessie) and v3.13 (Ubuntu trusty).
-Older or newer kernel versions might not be compatible - in which chase installation
-will fail because the modules could not be compiled.
+### Debian/Ubuntu
 
 You can download the latest Debian package from
 <https://github.com/ev3dev/lego-linux-drivers-dkms/releases>.
 
+It depends on the `ev3dev-rules` package available from the ev3dev package
+repository. You only have to do this once.
+
+    sudo apt-add-repository http://ev3dev.org/debian
+    sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 2B210565
+    sudo apt-get update
+    sudo apt-get install ev3dev-rules
+
 To install the Debian package (version number may be different):
 
-    sudo dpkg -i legoev3-uart-sensor-modules_2.0_all.deb
+    sudo dpkg -i legoev3-uart-sensor-modules_7.0_all.deb
+
+### Other Linux
+
+You can download the dkms tarball from <https://github.com/ev3dev/lego-linux-drivers-dkms/releases> (version number may be different).
+
+    wget https://github.com/ev3dev/lego-linux-drivers-dkms/releases/download/v7.0/lego-modules-7.0-source-only.dkms.tar.gz
+    sudo dkms add lego-modules-7.0-source-only.dkms.tar.gz
+
+You also need to create a new `.rules` file in `/etc/udev/rules.d` and copy the contents of both
+<https://github.com/ev3dev/lego-linux-drivers-dkms/blob/master/debian/udev> and
+<https://github.com/ev3dev/ev3dev-rules/blob/ev3dev-jessie/debian/ev3dev-rules.ev3dev.udev>
+into it. You only need to do this part once.
 
 Usage
 -----
