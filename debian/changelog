@@ -1,3 +1,9 @@
+lego-modules (7.0) stable; urgency=medium
+
+  * Update to kernel driver level 7.
+
+ -- David Lechner <david@lechnology.com>  Mon, 07 Sep 2015 10:49:59 -0500
+
 lego-modules (3.0.1) testing; urgency=medium
 
   * Fix building on non-ev3dev kernel
